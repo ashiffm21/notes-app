@@ -1,14 +1,22 @@
 import { Note } from './note.model';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NotesService {
+  notesChanged = new Subject<Note[]>();
   notes: Note[] = new Array<Note>();
 
   constructor() { }
-  
+
+  setNotes(note: Note[]) { 
+    this.notes = this.notes;
+    this.notesChanged.next(this.notes.slice());
+  }
+ 
+
   getAll() { 
     return this.notes;
   }

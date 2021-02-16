@@ -119,8 +119,8 @@ export class NoteListComponent implements OnInit {
   ngOnInit() {
     //retrive all the notes from NotesService
     this.notes = this.notesService.getAll();
-    // this.filteredNotes = this.notesService.getAll();
-    this.filter('');
+    this.filteredNotes = this.notesService.getAll();
+    // this.filter('');
   }
 
   deleteNote(note: Note) {
