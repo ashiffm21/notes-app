@@ -1,6 +1,7 @@
+import { EventEmitter } from '@angular/core';
 import { NotesService } from './../shared/notes.service';
 import { Note } from './../shared/note.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
@@ -13,6 +14,8 @@ export class NoteDetailsComponent implements OnInit {
   note: Note;
   noteId: number;
   new: boolean;
+  @Output('delete') deleteEvent: EventEmitter<void> = new EventEmitter<void>();
+
 
   constructor(
     private notesService: NotesService,
@@ -49,5 +52,10 @@ export class NoteDetailsComponent implements OnInit {
     onCancel() {
       this.router.navigateByUrl('/');
     }
-  }
+    onDeleteNote() { 
+      this.notesService.deleteNote(this.noteId);
+      this.router.navigate(['/']);
+    }
+    }
+  
 

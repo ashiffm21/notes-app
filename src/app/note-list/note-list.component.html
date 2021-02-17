@@ -15,10 +15,11 @@
       *ngFor="let note of filteredNotes; "
       [link]="generateNoteURL(note)"
       [@itemAnim]
-      (delete)="deleteNote(note)"
       [title]="note.title"
+      (delete)="deleteNote(note)" 
       [body]="note.body"
-    >
+      >
+
     </app-note-item>
   </div>
 
