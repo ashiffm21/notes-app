@@ -7,15 +7,17 @@ import { NoteMainComponent } from './note-main/note-main.component';
 import { NoteDetailsComponent } from './note-details/note-details.component';
 
 const routes: Routes = [
+  { path: '',redirectTo:"notes",  pathMatch: 'full' },
+
   {
-    path: '', component: NoteMainComponent,
+    path: 'notes', component: NoteMainComponent,
     canActivate: [AuthGuard],
 
     children: [
-      { path: '', component: NoteListComponent },
+      { path: '', component: NoteListComponent, pathMatch: 'full' },
       { path: 'new', component: NoteDetailsComponent },
       { path: ':id', component: NoteDetailsComponent },
-    ], pathMatch: 'full'
+    ]
   },
   { path: 'auth', component: AuthComponent }
 

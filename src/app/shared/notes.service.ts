@@ -33,7 +33,7 @@ export class NotesService {
     // this will ad a note to the notes array and return the id o note
     // where the id = index
 
-    let newLength = this.notes.push(note);
+    let newLength = this.notes.unshift(note);     ///unshift is used instead of push inorder for last entered note to come first//
     let index = newLength - 1;
     return index;
   }

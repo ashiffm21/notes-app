@@ -40,7 +40,7 @@ export class AuthComponent {
       resData => {
         console.log(resData);
         this.isLoading = false;
-        this.router.navigate(['']);
+        this.router.navigate(['notes']);
       },
       errorMessage => {
         console.log(errorMessage);
