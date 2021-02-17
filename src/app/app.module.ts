@@ -1,4 +1,8 @@
-import { HttpClientModule } from '@angular/common/http';
+import { AlertComponent } from './shared/alert/alert.component';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { AuthComponent } from './auth/auth.component ';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -22,16 +26,23 @@ import { NoteDetailsComponent } from './note-details/note-details.component';
     NoteMainComponent,
     NoteListComponent,
     NoteItemComponent,
-    NoteDetailsComponent
+    NoteDetailsComponent,
+    AuthComponent,
+    LoadingSpinnerComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule,
+    HttpClientModule,  
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,7 +10,7 @@ export class NoteItemComponent implements OnInit {
   @Input() body: string;
   @Input() link: string;
 
-  @Output('delete') deleteEvent:EventEmitter<void> = new EventEmitter<void>()
+  @Output('delete') deleteEvent: EventEmitter<void> = new EventEmitter<void>();
 
   @ViewChild('truncator', {static: true}) truncator: ElementRef<HTMLElement>;
   @ViewChild('bodyText',{static: true}) bodyText: ElementRef<HTMLElement>;

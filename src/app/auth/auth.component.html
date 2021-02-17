@@ -1,0 +1,79 @@
+<app-header></app-header>
+
+<section class="hero is-primary is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+            
+            <app-alert [message]="error" *ngIf="error" (close)="onHandleError()"></app-alert>
+
+          <div *ngIf="isLoading" style="text-align: center">
+            <app-loading-spinner></app-loading-spinner>
+          </div>
+
+          <form
+            class="box"
+            #authForm="ngForm"
+            (ngSubmit)="onSubmit(authForm)"
+            *ngIf="!isLoading"
+          >
+            <div class="field">
+              <label for="" class="label">Email</label>
+              <div class="control has-icons-left">
+                <input
+                  type="email"
+                  placeholder="e.g. guest@gmail.com"
+                  class="input"
+                  ngModel
+                  name="email"
+                  required
+                  email
+                />
+                <span class="icon is-small is-left">
+                  <i class="fa fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="" class="label">Password</label>
+              <div class="control has-icons-left">
+                <input
+                  type="password"
+                  placeholder="*******"
+                  class="input"
+                  ngModel
+                  name="password"
+                  required
+                  minlength="6"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fa fa-lock"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <button
+                type="submit"
+                class="button is-success"
+                [disabled]="!authForm.valid"
+              >
+                {{ isLoginMode ? "Login" : "Sign Up" }}
+              </button>
+              |
+
+              <button
+                class="button is-primary"
+                (click)="onSwitchMode()"
+                type="button"
+              >
+                To {{ isLoginMode ? "Sign Up" : "Login" }}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

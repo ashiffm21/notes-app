@@ -95,7 +95,7 @@ import {
           [
             style({
               opacity: 0,
-              height: 0,
+              height: 0
             }),
             stagger(100, [animate('0.2s ease')]),
           ],
@@ -121,7 +121,16 @@ export class NoteListComponent implements OnInit {
     this.notes = this.notesService.getAll();
     this.filteredNotes = this.notesService.getAll();
     // this.filter('');
+
+    this.notesService.notesChanged.subscribe(
+      (notes: Note[]) => {
+        this.notes = notes;
+        this.filteredNotes=notes
+      }
+    )
   }
+
+  
 
   deleteNote(note: Note) {
     let noteId = this.notesService.getId(note);
@@ -217,4 +226,5 @@ export class NoteListComponent implements OnInit {
 
     })
   }
+ 
 }

@@ -12,7 +12,7 @@ export class NotesService {
   constructor() { }
 
   setNotes(note: Note[]) { 
-    this.notes = this.notes;
+    this.notes = note;
     this.notesChanged.next(this.notes.slice());
   }
  
