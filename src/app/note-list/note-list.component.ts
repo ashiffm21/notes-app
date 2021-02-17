@@ -1,6 +1,8 @@
 import { NotesService } from './../shared/notes.service';
 import { Note } from './../shared/note.model';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+// import {PageEvent } from '@angular/material/paginator';
+
 import {
   animate,
   query,
@@ -135,14 +137,20 @@ export class NoteListComponent implements OnInit {
   deleteNote(note: Note) {
     let noteId = this.notesService.getId(note);
     this.notesService.delete(noteId);
-    this.filter(this.filterInputElRef.nativeElement.value);
-    
+    this.filter(this.filterInputElRef.nativeElement.value);    
   }
 
   generateNoteURL(note: Note) { 
     let noteId = this.notesService.getId(note);
     return noteId;
   }
+
+  // onPageChange(event: PageEvent) { }
+
+
+
+
+
                                             //Filter Method//
   
   filter(query: string) { 

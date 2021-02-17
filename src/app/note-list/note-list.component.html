@@ -10,8 +10,11 @@
     </div>
   </div>
 
+
+   
+
   <div class="notes-list" [@listAnim]>
-    <app-note-item
+    <app-note-item 
       *ngFor="let note of filteredNotes; "
       [link]="generateNoteURL(note)"
       [@itemAnim]
@@ -22,6 +25,12 @@
 
     </app-note-item>
   </div>
+
+  <!-- <mat-paginator [length]="this.note.length"
+  [pageSize]="3"
+  [pageSizeOptions]="[3, 6, 10,]"
+  (page)="onPageChange($event)">
+</mat-paginator> -->
 
   <button class="button floating-add-button is-primary" routerLink="new">
     +

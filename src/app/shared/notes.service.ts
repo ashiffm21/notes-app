@@ -48,9 +48,9 @@ export class NotesService {
     this.notes.splice(id, 1);
   }
 
- deleteNote(index : number){
-  this.notes.splice(index,1);
-  this.notesChanged.next(this.notes.slice());
-}
 
+  deleteNote(index : number){
+    this.notes.splice(index,1);
+    this.notesChanged.next(this.notes.slice());
+ }
 }

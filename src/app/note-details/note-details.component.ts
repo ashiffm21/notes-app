@@ -52,6 +52,8 @@ export class NoteDetailsComponent implements OnInit {
     onCancel() {
       this.router.navigateByUrl('/');
     }
+
+  
     onDeleteNote() { 
       this.notesService.deleteNote(this.noteId);
       this.router.navigate(['/']);
