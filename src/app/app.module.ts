@@ -30,6 +30,7 @@ import { NoteDetailsComponent } from './note-details/note-details.component';
     AuthComponent,
     LoadingSpinnerComponent,
     AlertComponent,
+    
   ],
   imports: [
     BrowserModule,
