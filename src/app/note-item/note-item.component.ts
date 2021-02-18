@@ -31,6 +31,8 @@ export class NoteItemComponent implements OnInit {
     }
   }
 
+  currentDate = new Date();
+
   onXButtonClick() { 
     this.deleteEvent.emit();
   }

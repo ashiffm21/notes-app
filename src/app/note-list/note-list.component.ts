@@ -147,8 +147,9 @@ export class NoteListComponent implements OnInit {
 
   // onPageChange(event: PageEvent) { }
 
+  // currentDate = new Date();
 
-
+  
 
 
                                             //Filter Method//
